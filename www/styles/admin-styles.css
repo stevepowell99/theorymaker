@@ -1,0 +1,34 @@
+.sidebar-menu li.active{
+  border-right: 5px solid #ff8fb8;
+  background-color: #eee;
+}
+.treeview li{
+  border-left: 15px solid #fff;
+  background-color: #fff !important;
+}
+.treeview li.active{
+  background-color: #eee !important;
+}
+#sidebarItemExpanded {
+color: #3c8dbc;
+
+}
+
+.sidebar-menu>li>a>.fa{
+  width:30px;
+}
+
+.sidebar-menu>li, .treeview li{
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+.grViz{
+  height:800px !important;
+}
+#conditional_edit{
+}
+
+.content{
+  min-height: 500px
+}

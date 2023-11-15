@@ -1,0 +1,57 @@
+/*Dark blue:
+C94 M87 Y45 K59
+R31 G31 B54
+Hex: #1f1f36
+
+Light blue (in logo):
+C47 M0 Y11 K0
+R109 G196 B200
+#6dc4c8
+
+Light blue (highlight):
+C58 M0 Y25 K0
+R118 G247 B255
+#76f7ff
+
+Light yellow:
+C7 M0 Y66 K0
+R247 G237 B115
+#f7ed73
+
+Pink:
+C0 M58 Y3 K0
+R255 G143 B184
+#ff8fb8
+
+Mint green:
+C60 M0 Y53 K0
+R0 G255 B175
+#00ffaf
+*/
+
+
+
+#show_login_panel_holder{
+  position:fixed;
+  width:120px;
+  height:50px;
+  top:10px;
+
+  right:10px;
+}
+
+#conditional_ui{
+
+  background-color: #1f1f36;
+}
+.content-wrapper{
+
+  background-color: #fff;
+}
+
+#firebase_holder {
+  width:400px;
+}
+#firebase_holder p{
+  text-align:center;
+}

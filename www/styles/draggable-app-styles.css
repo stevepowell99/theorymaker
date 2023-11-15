@@ -1,0 +1,235 @@
+/* so margins etc are calculated as % for heights, because we want to expand downwards, whereas width is in terms of vw*/
+
+@import url('https://fonts.googleapis.com/css2?family=Kiwi Maru:wght@300&display=swap');
+
+
+html {
+  --fontmax: calc(min((.5vh + .5vw),11px));
+  --font1: calc(max(var(--fontmax) * 1.5 ,  8px));
+  --font2: calc(max(var(--fontmax) * 2.0 ,  9px));
+  --font3: calc(max(var(--fontmax) * 2.5 , 10px));
+  --font4: calc(max(var(--fontmax) * 3.0 , 12px));
+  --font5: calc(max(var(--fontmax) * 3.5 , 14px));
+  --font6: calc(max(var(--fontmax) * 4.0 , 16px));
+
+
+font-family: 'Kiwi Maru', sans-serif;
+}
+a:hover{
+  color:#ff8fb8 !important;
+}
+
+
+.small_text{font-size:var(--font1);}
+.purple{
+  color:#fff;
+}
+.highlight{
+  background-color:#f7ed7355;
+}
+
+.small{
+  font-size:var(--font1);
+}
+.inline{
+  display:inline-block;
+}
+.red{
+  background-color:#ee666655;
+
+}
+.blue{
+  background-color:#6666ee55;
+
+}
+
+#normal_body h1,h2,h3,h4{
+line-height: unset;
+font-family: 'Kiwi Maru', sans-serif;
+}
+#normal_body h1{
+font-size:var(--font6) !important;
+
+}
+#normal_body h2{
+font-size:var(--font5) !important;
+
+}
+#normal_body a:hover{
+    text-decoration: none;
+
+}
+#normal_body a{
+    color: #6dc4c8;
+
+}
+
+
+#help{
+    padding: 20px;
+/*    position: fixed;
+    bottom: 0;
+    left: 160px;
+    */
+    color: black;
+    background-color:#aaaacc98;
+
+}
+#recreate_rds_holder{
+    position: fixed;
+    bottom: 10px;
+    right: 120px;
+    border: 1px solid red;
+
+}
+
+
+
+#normal_body{
+font-size: var(--font4) ;
+font-family: 'Kiwi Maru', sans-serif;
+border: 0 !important;
+font-style: normal;
+color:#1f1f36;
+margin-left:10vw;
+margin-top:10%;
+
+}
+.form-group.shiny-input-container{
+  width:300px;
+}
+
+
+
+.rank-list-title {
+font-size:x-small;
+padding:0;
+margin:0;
+  font-weight: bold;
+
+}
+.tiny-height {
+  height:.1px;
+  padding:0
+  margin:0;
+}
+.small-height {
+  height:.20px;
+}
+ .bucket-list-container {
+   min-height: 650px;margin-left:350px !important;
+   margin-top:40px !important;
+ }
+
+.default-sortable.column_2:after {
+/*content:"Drag 2 or more factors here to create a new cluster";  */
+}
+
+.rank-list-item:first-of-type {
+  background-color: aliceblue !important;
+
+}
+.rank-list-container:first-of-type .rank-list-item {
+  height: unset !important;
+}
+.rank-list-container:nth-of-type(2) .rank-list-item {
+  height: 20px !important;
+}
+.rank-list-container {flex: 1 0 200px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    min-height:50px;
+    min-width:325px;
+    flex-flow: row nowrap;
+
+}
+
+.rank-list-container:first-of-type {
+  flex: 1 0 160px;
+    background-color:#dfd !important;
+    color:green;
+    width:300px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    position: fixed;
+    left: 176px;
+    top: 470px;
+    height: unset;
+    max-height:45vh;
+    overflow-y:scroll;
+    flex-flow: column nowrap;
+
+}
+.default-sortable.column_2::after {
+  content:"Drag items here to form a new cluster";
+  color:gray;
+
+}
+.default-sortable.column_2 {
+    position: fixed;
+    top: 350px;
+    margin: 5px;
+    width:300px;
+    left:176px;
+    border:1px solid gold !important;
+    background-color: white !important;
+    z-index: 1 !important;
+}
+#save_holder{
+    position: fixed;
+    top: 360px;
+    left:462px;
+    z-index: 2 !important;
+
+}
+.default-sortable.column_3{
+  right:20px;
+}
+
+.rank-list-item{padding:1px !important;}
+
+#save_boxes_name,#save_boxes{margin-left:40px;}
+#save_boxes>i{color:green;}
+#save_boxes_default>i{color:red;}
+#save_boxes_default>i::after{content:" !"}
+#generate_embeddings i {color:red;}
+#refresh_recodes i {color:blue;}
+#search_panel {background-color:#dde;padding:5px;width:325px;}
+#search_bar {
+    position: fixed;
+    top: 70px;
+    left:176px;
+    width:330px;
+    z-index:99;
+    background-color:#eeeeff95;
+    padding:5px;
+}
+
+.rank-list::before{
+     font-family: "Font Awesome 5 Free";
+  content:"\f044";
+  position: absolute;
+  margin-left:-14px;
+  margin-top:-35px;
+  cursor: cell;
+  font-size: smaller;
+  color:gray;
+}
+.rank-list-container:first-of-type .rank-list::before{
+  content:"";
+  display:none;
+}
+.default-sortable.column_2 .rank-list::before{
+  content:"";
+  display:none;
+}
+
+
+.dropdown-menu{
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}

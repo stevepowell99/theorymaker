@@ -1,0 +1,44 @@
+#signout2{
+
+
+}
+#sidebar-menu i{margin-right:5px;}
+.sidebar-menu>li>a>.fa, .sidebar-menu>li>a>.glyphicon, .sidebar-menu>li>a>.ion {
+    width: 35px !important;
+}
+.main-header{
+  background-color: #ecf0f5;
+}
+#dashboard_header{
+  border-bottom:2px solid white;
+}
+.main-sidebar{
+  background-color: #1f1f36;
+  margin-top:25px;
+  padding-left: 10px;
+}
+.tab-content{
+  font-size: medium;
+}
+.tab-content .form-control{
+  font-size: medium !important;
+  line-height: unset !important;
+}
+
+#ribbon{
+  z-index:1;
+  width: 200px;
+  background: white;
+  background: #6dc4c8;
+  text-align: center;
+  line-height: 30px;
+  letter-spacing: 1px;
+  color: #fff;
+  position: fixed;
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+   top: auto;
+  bottom: 25px;
+  left: -50px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg); /*https://codepen.io/eode9/pen/twkKm*/
+}

@@ -1,0 +1,11 @@
+{
+  "app_name": "StorySurvey",
+  "region": "europe-west1",
+  "ram_gb": 8,
+  "r_ver": "4.2.0",
+  "tlmgr": [],
+  "golem_package_name": {},
+  "cache": false,
+  "gh_pat": {},
+  "max_sessions": 100
+}

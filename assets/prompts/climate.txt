@@ -1,0 +1,11 @@
+Bearing in mind everything you know about how to construct a systems diagram, invent a systems diagram to explain how climate and climate change systems work and how humans influence them, using the following information:
+Current global climate trends
+The global climate is warming much faster than the natural cycles of the Earth. Today’s rising temperatures are caused by greenhouse gases being produced by human activities.
+
+Climate feedback
+A process known as climate feedback can amplify small changes and make our climate change even faster. For example, as temperatures rise, snow and ice sheets melt. This uncovers land and water surfaces that then absorb more of the Sun’s energy causing more warming, which causes higher temperatures and more melting in a self-reinforcing cycle. 
+
+Tipping points
+A tipping point in the climate system occurs when a critical threshold is exceeded that then leads larger and often irreversible change. Some examples include large scale thawing of frozen soils in the arctic (permafrost) and melting of the Greenland and West Antarctic ice sheets.
+
+(https://www.climatechange.environment.nsw.gov.au/basics-climate-change/global-climate-system#:~:text=The%20global%20climate%20system%20is%20driven%20mostly%20by%20energy%20from,heat%20from%20the%20Earth's%20core.)
