@@ -1,5 +1,6 @@
 is_laptop <- (Sys.getenv("USERDOMAIN") == "STEVE-P")
-
+use_authentication <- F
+use_sql <- F
 options(shiny.autoreload = F)
 options(shiny.maxRequestSize=50*1024^2)
 
@@ -69,6 +70,7 @@ server <- function(input, output, session) {
 
   api_key <- config$api_key
 
+if(use_sql){
 
   conn <- DBI::dbConnect(
     #RMySQL::MySQL(),
@@ -89,6 +91,7 @@ server <- function(input, output, session) {
     password = config$sql_cm$password,
     mysql=F
   )
+}
 
 
 
@@ -114,7 +117,9 @@ server <- function(input, output, session) {
   message("initialised....")
 
   observe({
-    sess$user_all <-
+    if(!use_authentication) sess$user <- "no_authentication" else {
+
+      sess$user_all <-
       session$userData$user() %>% replace_null(list(email = "no_user", is_admin =F))
     sess$user <- sess$user_all$email
 #    sess$user <- "steve@pogol.net" ###fixme
@@ -126,6 +131,7 @@ server <- function(input, output, session) {
     sess$q <- getQueryString()
     sess$s <- sess$q[["s"]]
 
+    }
 
   })
 
@@ -186,7 +192,8 @@ polished::polished_config(
   sign_in_providers = c("google", "email")
 )
 
-ui_secure <- secure_ui(
+if(use_authentication){
+  ui_secure <- secure_ui(
   ui,
   sign_in_page_ui = polished::sign_in_ui_default(
     company_name = "Causal Map",
@@ -205,6 +212,10 @@ ui_secure <- secure_ui(
   )
 )
 server_secure <- secure_server(server)
-shinyApp(ui_secure,server_secure, enableBookmarking = "url")
+} else {
+ui_secure <- ui
+server_secure <- server
 
+}
+shinyApp(ui_secure,server_secure, enableBookmarking = "url")
 

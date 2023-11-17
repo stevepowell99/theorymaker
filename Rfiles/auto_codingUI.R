@@ -86,16 +86,6 @@ fluidRow(
            ,
            div(id = "main",
                div(
-                 # radioGroupButtons(
-                 #   inputId = "coding_model",
-                 #   label = "Model",
-                 #   choices = list("GPT-3.5-turbo" = "gpt-3.5-turbo",
-                 #                  "GPT-4" = "gpt-4"),
-                 #   justified = F,
-                 #   selected="4",
-                 #   checkIcon = list(yes = icon("ok",
-                 #                               lib = "glyphicon"))
-                 # ),
                  actionButton("autocoding_go", "Go",class="big green")
                ))
     ),
@@ -117,6 +107,7 @@ fluidRow(
 observe({
   if(is.null(sess$file)) return()
   if(!(flags$init_statements)) return()
+  if(!use_sql) return()
   sess$file$links
   flags$init_statements
   # browser()
@@ -251,9 +242,11 @@ observeEvent(input$autocoding_go,ignoreNULL = T,ignoreInit = T, {
   usage$prompt=input$select_auto_coding_prompt_1
   if(exists("sess"))usage$user=sess$user else usage$user=("testing")
 # browser()
+  if(use_sql){
   dbWriteTable(conn=conn,name="cm3usage",local(as_tibble(usage)),append=T)
   control$my_usage <- tbl(conn,"cm3usage") %>% filter(user==local(sess$user)) %>% pull(tokens) %>% sum(na.rm=T)
   #response <- attr(links_new,"response")
+  }
   }
   updateTextAreaInput(session = session,"result_p_1",value=res %>% collap)
 

@@ -1,7 +1,8 @@
 output$whole_ui <- renderUI({
+  if(use_authentication){
   if(is.null((sess$q)))return()
   if(is.null((sess$user)))return("Sign in")
-
+}
   message("rendering wholeUI....")
 
   page_fluid(
@@ -61,7 +62,7 @@ if("no_user"==((sess$user)))return(
 
                          )
                          ,
-                         tabPanel(title="Account",value="Account",icon=icon("user"),
+                         if(use_sql | use_authentication)tabPanel(title="Account",value="Account",icon=icon("user"),
 
 
                                   div(
