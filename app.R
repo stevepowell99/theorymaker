@@ -1,6 +1,10 @@
 is_laptop <- (Sys.getenv("USERDOMAIN") == "STEVE-P")
+
+## Keep these two set to false unless you want to use authentication or sql record of transactions
 use_authentication <- F
 use_sql <- F
+
+
 options(shiny.autoreload = F)
 options(shiny.maxRequestSize=50*1024^2)
 
@@ -29,6 +33,7 @@ library(stringr)
 library(stringdist)#for afind
 library(stringi)
 library(shinyjs)
+library(shinycookie)
 library(snapper)
 library(shinycssloaders)
 library(shinydashboard)
@@ -68,7 +73,7 @@ server <- function(input, output, session) {
 
   config = configr::read.config("config.yml")$default
 
-  api_key <- config$api_key
+
 
 if(use_sql){
 
@@ -164,6 +169,12 @@ if(use_sql){
 
 
 
+  observe({
+
+    # browser()
+    sess$api_key <- input$my_api_key_cookie$api_key %>% replace_null(config$api_key)
+
+  })
 
 
 

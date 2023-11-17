@@ -22,6 +22,8 @@ tags$link(
   type = "text/css",
   href = "styles/fades.css"
 ),
+shinycookie::initShinyCookie("my_api_key_cookie"),#  # Initialize shinycookie
+
 useShinyjs(),
 useShinydashboardPlus()
     )
@@ -122,6 +124,7 @@ output$usage_table <- renderUI({
   tbl(conn,"cm3usage") %>%
     filter(user==local(sess$user) |user=="testing" | local(sess$is_admin)) %>%
     select(-statements) %>% #FIXME seems to make it last forever
+    select(-event_type) %>% #FIXME seems to make it last forever
     collect %>%
     arrange((time_stamp)) %>%
     mutate(dollars=ifelse(model=="3",tokens*0.000002,tokens*0.00006)%>% signif(4)) %>%

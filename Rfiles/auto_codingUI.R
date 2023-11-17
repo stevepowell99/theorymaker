@@ -95,7 +95,10 @@ fluidRow(
                          width = "100%"
            )
     )           ,
-    box(solidHeader=T,status="info",width=12,title="Settings",collapsible = T
+    box(solidHeader=T,status="info",width=12,title="Settings",collapsible = T,collapsed=T,
+        p("If you want to use your own API key from openAI, paste it here to save it securely in your browser. We cannot see the key or use it, only you can."),
+        textInput("api_enter",NULL,placeholder="Paste your API key") %>% div(class="inline"),
+        actionButton("api_enter_go",icon("save"),title="Save your API key in your browser",class="green") %>% div(class="inline")
 
     )
 
@@ -103,6 +106,18 @@ fluidRow(
   )
 })
 
+
+observeEvent(input$api_enter_go,{
+  # browser()
+  if (input$api_enter != "") {
+    # Set a cookie with the API key
+   shinycookie::updateCookie(session, api_key=input$api_enter)
+    sess$cookie <- input$my_api_key_cookie$api_key
+    notify("Refreshing!")
+    refresh() %>% delay(2000,.)
+  }
+
+})
 
 observe({
   if(is.null(sess$file)) return()
@@ -205,7 +220,7 @@ observeEvent(input$autocoding_go,ignoreNULL = T,ignoreInit = T, {
     imageHeight = 600,
     animation = TRUE,inputId = "thinking"
   )
-  response <- ask_chatgpt(sess$messages,api_key = api_key,model = "gpt-4-1106-preview")
+  response <- ask_chatgpt(sess$messages,api_key = sess$api_key,model = "gpt-4-1106-preview")
   # browser()
 
   updateTextAreaInput(session=session,"auto_coding_prompt_1",
@@ -239,6 +254,7 @@ observeEvent(input$autocoding_go,ignoreNULL = T,ignoreInit = T, {
   usage$time_stamp <- time_stamp()
   usage$tokens <- sess$messages %>% unlist %>% nchar %>% sum %>% `/`(7) %>% round(0)
   usage$file="theorymaker"#input$file_select
+  usage$api_key=ifelse(sess$api_key==config$api_key,"standard","user_key")
   usage$prompt=input$select_auto_coding_prompt_1
   if(exists("sess"))usage$user=sess$user else usage$user=("testing")
 # browser()

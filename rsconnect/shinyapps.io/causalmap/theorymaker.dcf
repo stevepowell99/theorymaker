@@ -1,0 +1,12 @@
+name: theorymaker
+title: theorymaker
+username: causalmap
+account: causalmap
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10558533
+bundleId: 7939737
+url: https://causalmap.shinyapps.io/theorymaker/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
